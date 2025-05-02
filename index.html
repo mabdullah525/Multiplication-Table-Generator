@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Calculator</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 150px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        ::placeholder {
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Multiplication Table Generator</h2>
+
+        <input type="number" id="num" placeholder="Enter number">
+        <input type="number" id="end" placeholder="Enter end range">
+        <br>
+        <button onclick="showTable()">Show Table</button>
+        <button onclick="showRandomTable()">Random Table</button>
+        <button onclick="showRandomTable()">Random Table w/ Random Range</button>
+
+        <div id="result"></div>
+    </div>
+
+
+</body>
+
+<script>
+
+
+
+    function showTable() {
+        let numInput = document.getElementById("num");
+        let endInput = document.getElementById("end");
+        let resultBox = document.getElementById("result");
+
+
+        let num = numInput.value;
+        let end = endInput.value;
+        let text = "";
+
+        for (let i = 1; i <= end; i++) {
+            text += `${num} x ${i} = ${num * i}<br>`;
+        }
+        resultBox.innerHTML = text;
+
+    }
+
+    function showRandomTable() {
+        let resultBox = document.getElementById("result");
+        let randomNum = Math.floor(Math.random() * 1000);
+        let end = Math.floor(Math.random() * 20) + 1;
+        let text = "";
+
+        for (let i = 1; i <= end; i++) {
+            text += `${randomNum} x ${i} = ${randomNum * i}<br>`;
+        }
+
+        resultBox.innerHTML = text;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
