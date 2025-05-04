@@ -62,6 +62,7 @@
             padding: 15px;
             border-radius: 10px;
         }
+
         ::placeholder {
             color: #999;
         }
@@ -77,8 +78,9 @@
         <input type="number" id="end" placeholder="Enter end range">
         <br>
         <button onclick="showTable()">Show Table</button>
-        <button onclick="showRandomTable()">Random Table</button>
-        <button onclick="showRandomTable()">Random Table w/ Random Range</button>
+        <button onclick="showRandomTableFixedRange()">Random Table</button>
+        <button onclick="showRandomTable()">Random Table (Any Number & Range)</button>
+
 
         <div id="result"></div>
     </div>
@@ -95,7 +97,6 @@
         let endInput = document.getElementById("end");
         let resultBox = document.getElementById("result");
 
-
         let num = numInput.value;
         let end = endInput.value;
         let text = "";
@@ -104,7 +105,19 @@
             text += `${num} x ${i} = ${num * i}<br>`;
         }
         resultBox.innerHTML = text;
+    }
 
+    function showRandomTableFixedRange() {
+        let resultBox = document.getElementById("result");
+        let randomNum = Math.floor(Math.random() * 10) + 1;
+        let end = 10;
+        let text = "";
+
+        for (let i = 1; i <= end; i++) {
+            text += `${randomNum} x ${i} = ${randomNum * i}<br>`;
+        }
+
+        resultBox.innerHTML = text;
     }
 
     function showRandomTable() {
@@ -119,6 +132,7 @@
 
         resultBox.innerHTML = text;
     }
+
 
 
 
